@@ -4,6 +4,9 @@
 
 replicaCount: 1
 
+podmonitor:
+  enabled: true
+
 image:
   repository: dirceusilva/app-exemplo-prometheus
   pullPolicy: IfNotPresent

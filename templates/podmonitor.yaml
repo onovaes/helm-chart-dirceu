@@ -1,0 +1,15 @@
+{{- if .Values.podmonitor.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  labels:
+    {{- include "app-dirceu.labels" . | nindent 4 }}
+  name: {{ include "app-dirceu.fullname" . }}
+spec:
+  podMetricsEndpoints:
+  - port: http
+    interval: 10s
+  selector:
+    matchLabels:
+      {{- include "app-dirceu.selectorLabels" . | nindent 6 }}
+{{- end }}
